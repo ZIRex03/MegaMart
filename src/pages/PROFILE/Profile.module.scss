@@ -1,0 +1,177 @@
+@import '../../styles/variables.scss';
+@import '../../styles/mixin.scss';
+
+.profile{
+    margin-top: 30px;
+
+    &__header{
+        display: flex;
+        justify-content: space-between;
+        column-gap: 20px;
+
+        &-user{
+            display: flex;
+            column-gap: 20px;
+
+            &-image{
+                width: 200px;
+                height: 200px;
+
+                img{
+                    object-fit: cover;
+                    width: 100%;
+                    height: 100%;
+                    border-radius: 50%;
+                }
+            }
+
+            &-info{
+                align-content: center;
+
+                .name{
+                    max-width: 290px;
+                    font-weight: 600;
+                    font-size: 36px;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                }
+
+                .email{
+                    max-width: 290px;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    font-size: 22px;
+                    color: rgb(161, 159, 164);
+                }
+            }
+            
+        }
+
+        .button-edit{
+            background-color: #4182F9;
+            color: $text-color;
+            font-size: 28px;
+            border-radius: 12px;
+            border: 0px;
+            padding: 10px 30px;
+            height: fit-content;
+            align-self: center;
+            cursor: pointer;
+        }
+    }
+
+    &__inputs{
+        margin-top: 40px;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        row-gap: 20px;
+
+        input{
+            width: 60%;
+            padding: 10px 10px;
+            border-radius: 12px;
+            font-size: 22px;
+            background-color: $links-color;
+            border: 1px solid #bab6b6;
+            color: $text-color;
+
+            &::placeholder{
+                font-size: 18px;
+            }
+        }
+
+        button{
+            font-size: 28px;
+            padding: 10px 30px;
+            border-radius: 12px;
+            margin-top: 10px;
+            cursor: pointer;
+        }
+    }
+}
+
+@media(max-width: 870px){
+
+    .profile{
+        &__header{
+            flex-direction: column;
+
+            .button-edit{
+
+                align-self: normal;
+                width: fit-content;
+                margin-top: 30px;
+            }
+        }
+    }
+}
+
+@media(max-width:700px){
+    .profile__inputs{
+
+        input{
+            width: 100%;
+        }
+    }
+}
+
+@media(max-width: 540px){
+
+    .profile{
+
+        &__header{
+            
+            .button-edit{
+
+                font-size: 20px;
+            }
+        }
+
+        &__inputs{
+            button{
+                font-size: 20px;
+            }
+        }
+    }
+
+    .profile__header-user-image{
+        width: 150px;
+        height: 150px;
+    }
+
+    .profile__header-user-info{
+
+        .name{
+            max-width: 150px;
+            font-size: 22px;
+        }
+
+        .email{
+            max-width: 150px;
+            font-size: 16px;
+        }
+    }
+
+    
+
+    
+}
+
+@media (max-width:420px){
+    .profile__header-user-info{
+
+        .name{
+            font-size: 20px;
+        }
+
+        .email{
+            font-size: 16px;
+        }
+    }
+    .profile__header-user-image{
+        width: 60px;
+        height: 60px;
+    }
+}

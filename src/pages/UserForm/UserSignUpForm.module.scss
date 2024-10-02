@@ -1,0 +1,138 @@
+
+@import '../../styles/mixin.scss';
+@import '../../styles/variables.scss';
+
+.user__form{
+
+    background-color: #262151;
+    height: 100vh;
+    width: 400px;
+    padding-inline: 30px;
+    padding-top: 30px;
+    text-align: center;
+    position: fixed;
+    z-index: 999;
+    top: 0;
+    right: 0;
+
+    &-title{
+        text-align: center;
+        @include fluid-text(18, 42)
+    }
+
+    &-group{
+        margin-top: 20px;
+        display: flex;
+        flex-direction: column;
+        row-gap: 20px;
+
+        input{
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 20px;
+
+            &::placeholder{
+                font-size: 20px;
+            }
+        }
+
+        button{
+            
+            padding: 5px 10px;
+            font-size: 24px;
+            color: $text-color;
+            background-color: #5f2eba;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            border-radius: 5px;
+            border: 0px;
+            width: 80%;
+            margin: 0 auto;
+            margin-top: 20px;
+            cursor: pointer;
+
+        }
+    }
+
+    .close-icon{
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        width: 30px;
+        height: 30px;
+        cursor: pointer;
+        transition: .3s all ease;
+
+        &:hover{
+            opacity: 0.4;
+        }
+    }
+
+    p{
+        font-size: 26px;
+    }
+
+    .icon-warning{
+        font-size: 16px;
+        font-weight: 400;
+    }
+
+    .login-button{
+        font-size: 22px;
+        text-align: center;
+        color: $text-color;
+        font-weight: 600;
+        border-radius: 5px;
+        border: 0px;
+        cursor: pointer;
+        margin-top: 60px;
+        transition:  .3s all ease;
+
+        span{
+            font-weight: 500;
+        }
+
+        &:hover{
+            opacity: 0.4;
+        }
+
+    }
+
+    .email-error{
+        text-align: start;
+        font-size: 16px;
+        color: #d5bbbb;
+    }
+}
+
+.overlay{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(33, 33, 35, 0.8);
+    z-index: 998;
+
+}
+
+
+@media (max-width: 768px){
+    .user__form{
+        width: 300px;
+    }
+}
+
+@media (max-width: 550px){
+    .user__form{
+        width: 250px;
+    }
+}
+
+@media (max-width: 450px){
+
+    .user__form{
+        width: 100%;
+    }
+
+}

@@ -1,0 +1,66 @@
+@import "../../../../styles/mixin.scss";
+@import "../../../../styles/variables.scss";
+
+.actual{
+    margin-top: 60px;
+
+    &-title{
+        @include fluid-text(20, 30);
+        font-weight: 600;
+    }
+
+    &__items{
+        margin-top: 30px;
+        display: flex;
+        justify-content: center;
+        column-gap: 20px;
+
+        img{
+            height: auto;
+            width: 100%;
+            max-width: 953px;
+        }
+
+        &-sidebar{
+            display: flex;
+            flex-direction: column;
+
+            row-gap: 20px;
+
+            &-item{
+
+                &-title{
+                    @include fluid-text(16, 20);
+                    font-weight: 600;
+                }
+
+                &-subtitle{
+                    @include fluid-text(16, 20);
+                    font-weight: 400;
+                    color: #c8c2c2;
+                }
+            }
+        }
+    }
+}
+
+
+@media(max-width:900px){
+
+    .actual{
+
+        &__items{
+
+            display: flex;
+            flex-direction: column;
+
+            &-sidebar{
+                justify-content: center;
+                margin-top: 20px;
+                order: 1;
+                flex-direction: row;
+                column-gap: 20px;
+            }
+        }
+    }
+}

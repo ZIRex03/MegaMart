@@ -1,0 +1,49 @@
+@import "../../../../styles/mixin.scss";
+@import "../../../../styles/variables.scss";
+
+.footer{
+    margin-top: 40px;
+    background-color: $accent-color;
+
+    padding: 10px 0;
+
+    @include clamp-padding(20, 60);
+
+    .logo{
+        width: 120px;
+        height: 80px;
+    }
+
+    &__info{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+   
+    &__socials{
+        display: flex;
+        column-gap: 15px;
+        align-items: center;
+
+        .icons{
+            width: 25px;
+            height: 25px;
+            cursor: pointer;
+            transition: .3s all ease;
+
+            &:hover{
+                color: #6C3EB8;
+            }
+        }
+    }
+}
+
+@media (max-width:800px){
+
+    .footer{
+        .logo{
+            width: 80px;
+            height: 60px;
+        }
+    }
+}

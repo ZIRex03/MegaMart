@@ -1,0 +1,16 @@
+
+@mixin clamp-padding($min, $max){
+    padding-inline: clamp(#{$min}px, #{$max/1920*100}vw, #{$max}px);
+}
+
+@mixin fluid-text($min, $max){
+    font-size: clamp(#{$min}px, #{$max/1920*100}vw, #{$max}px);
+}
+
+@mixin height-size($min, $max){
+    height: clamp(#{$min}px, #{$max/1920*100}vw, #{$max}px);
+}
+
+@mixin width-size($min, $max){
+    width: clamp(#{$min}px, #{$max/1920*100}vw, #{$max}px);
+}

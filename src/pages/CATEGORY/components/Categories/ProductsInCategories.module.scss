@@ -1,0 +1,111 @@
+@import "../../../../styles/mixin.scss";
+@import "../../../../styles/variables.scss";
+
+.products__category{
+
+    margin-top: 30px;
+
+    &-title{
+        @include fluid-text(20, 30);
+        font-weight: 600;
+    }
+
+    &-items{
+        margin-top: 40px;
+        display: flex;
+        row-gap: 20px;
+        flex-direction: column;
+
+        &-box{
+            display: flex;
+            column-gap: 40px;
+
+            background-color: $accent-color;
+            border-radius: 15px;
+            padding: 10px 10px;
+            @include height-size(150, 300);
+
+            .item-image{
+                
+                overflow: hidden;
+                width: 25%;
+                text-align: center;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                position: relative;
+                //background-color: $text-color;
+                border-radius: 15px;
+
+                img{
+                   
+                    object-fit: cover;
+                    width: 100%;
+                    height: 100%;
+                }
+
+            }
+
+            .item-info{
+
+                width: 70%;
+                
+                &-title{
+                    max-height: 55px;
+                    @include fluid-text(18, 24);
+                    text-wrap: pretty;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    font-weight: 600;
+                    
+                }
+
+                &-rating{
+                    @include fluid-text(16,22);
+                    padding-top: 20px;
+                }
+
+                &-price{
+                    padding-top: 20px;
+                    @include fluid-text(18, 28);
+                    color: #6C3EB8;
+                }
+            }
+        }
+    
+
+
+            
+    }
+}
+
+// @media(max-width: 600px){
+
+
+//     .products__category{
+
+//         &-items{
+           
+    
+//             &-box{
+//                 column-gap: 20px;
+
+//                 .item-image{
+//                     align-content: center;
+//                 }
+
+//                 .item-image{
+
+//                     width: 40%;
+
+//                 }
+
+//                 .item-info{
+
+//                     width: 60%;
+//                 }
+//             }
+//         }
+//     }
+// }
+

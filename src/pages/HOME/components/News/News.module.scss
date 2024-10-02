@@ -1,0 +1,138 @@
+@import "../../../../styles/mixin.scss";
+@import "../../../../styles/variables.scss";
+
+.news{
+
+    .slider{
+        display: none;
+    }
+
+    margin-top: 60px;
+
+    &-title{
+        @include fluid-text(20, 30);
+        font-weight: 600;
+    }
+
+    &__items{
+        margin-top: 20px;
+        display: flex;
+        column-gap: 20px;
+
+        justify-content: center;
+
+        img{
+            height: auto;
+            max-width: 410px;
+            width: 100%;
+        }
+
+        &-box{
+
+            &-title{
+                @include fluid-text(16, 20);
+                font-weight: 600;
+            }
+
+            &-subtitle{
+                @include fluid-text(16, 20);
+                font-weight: 400;
+                color: #c8c2c2;
+            }
+        }
+    }
+}
+
+
+@media(max-width:500px){
+
+    .news__items{
+        display: none;
+    }
+
+    .slider{ 
+
+        display: inherit !important;
+        max-width: 343px;
+        width: 100%;
+        height: auto;
+        overflow: hidden;
+        position: relative;
+
+        margin: 0 auto;
+        margin-top: 20px;
+
+        .navigation {
+        
+            position: absolute;
+            bottom: 5px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            column-gap: 30px;
+    
+        }
+
+        .bar{
+            height: 8px;
+            width: 30px;
+            background-color: #fff;
+            opacity: .4;
+            border-radius: 5px;
+        }
+
+
+        input[name="r"] {
+            position: absolute;
+            visibility: hidden;
+        }
+
+        .slides{
+            width: 300%;
+            height: 100%;
+            display: flex;
+    
+        }
+    
+        .slide{
+    
+            width: 33.33%;
+            transition: .3s all ease;
+    
+            display: flex;
+            flex-direction: column;
+    
+            img{
+                width: 100%;
+                height: 80%;
+            }
+    
+            &-title{
+                margin-top: 10px;
+                @include fluid-text(16, 20);
+                font-weight: 600;
+            }
+    
+            &-subtitle{
+                @include fluid-text(16, 20);
+                font-weight: 400;
+                color: #c8c2c2;
+                //margin-bottom: 30px;
+            }
+        }
+    
+        #r1:checked ~ .s1{
+            margin-left: 0%;   
+        }
+    
+        #r2:checked ~ .s1{
+            margin-left: -33.33%;
+        }
+    
+        #r3:checked ~ .s1{
+            margin-left: -66.66%;
+        }
+
+    } 
+
+}
