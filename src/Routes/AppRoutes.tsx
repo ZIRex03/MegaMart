@@ -10,7 +10,7 @@ import Profile from '../pages/PROFILE/Profile'
 
 const AppRoutes = () => (
     <Routes>
-        <Route index element={<Home/>}/>
+        <Route path={ROUTES.HOME} element={<Home/>}/>
         <Route path={ROUTES.PRODUCT} element={<SingleProduct/>}/>
         <Route path={ROUTES.CATEGORIES} element={<SingleCategory/>}/>
         <Route path={ROUTES.CART} element={<Cart/>}/>
