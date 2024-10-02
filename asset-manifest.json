@@ -1,0 +1,24 @@
+{
+  "files": {
+    "main.css": "/MegaMart/static/css/main.9571d531.css",
+    "main.js": "/MegaMart/static/js/main.9159d8a3.js",
+    "static/media/jeans3.png": "/MegaMart/static/media/jeans3.a67fe6dd2647bf2cb4a2.png",
+    "static/media/MegaMart-icon.png": "/MegaMart/static/media/MegaMart-icon.dc30ce382f3f2de92c29.png",
+    "static/media/news-item2.png": "/MegaMart/static/media/news-item2.0ffa54064a8bb1f26f8c.png",
+    "static/media/news-item3.png": "/MegaMart/static/media/news-item3.0c1b13b62f0ce1d40c44.png",
+    "static/media/item3.png": "/MegaMart/static/media/item3.134dcc9d5121932cda36.png",
+    "static/media/news-item1.png": "/MegaMart/static/media/news-item1.66b3a2afff94009ca70b.png",
+    "static/media/item2.png": "/MegaMart/static/media/item2.c08594c32acb33525533.png",
+    "static/media/item1.png": "/MegaMart/static/media/item1.30aa73f06f8675f42f3f.png",
+    "static/media/jeans2.png": "/MegaMart/static/media/jeans2.579487be0c02b1f9ee20.png",
+    "static/media/jeans1.png": "/MegaMart/static/media/jeans1.c99038683f5f96caf61a.png",
+    "static/media/user-icon.jpg": "/MegaMart/static/media/user-icon.38d73d4810ca4c029a2c.jpg",
+    "index.html": "/MegaMart/index.html",
+    "main.9571d531.css.map": "/MegaMart/static/css/main.9571d531.css.map",
+    "main.9159d8a3.js.map": "/MegaMart/static/js/main.9159d8a3.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.9571d531.css",
+    "static/js/main.9159d8a3.js"
+  ]
+}
