@@ -42,9 +42,9 @@ const Header = (props: Props) => {
     if(!currentUser){
       setValues({...values, name:'Guest', avatar: AVATAR})
       return
-    };
+    }
     setValues(currentUser);
-  }, [currentUser, values]);
+  }, [currentUser]);
 
   const handleSearch = ({target: {value}}:any) => {
     setSearchValue(value);

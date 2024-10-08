@@ -9,7 +9,6 @@ type Props = {}
 const Categories = (props: Props) => {
 
     const {list} = useAppSelector(({categories}) => categories)
-    console.log(list)
 
   return (
     <div className={s['categories']}>

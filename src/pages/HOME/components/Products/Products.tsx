@@ -10,8 +10,6 @@ interface Props {
 
 const Products = ({products, amount} : Props) => {
 
-  console.log(products);
-
   const list = products.filter((_:any,i:number) => i < amount);
 
   return (
