@@ -4,6 +4,12 @@
 
 .user__form{
 
+    .error-login{
+        color: red;
+        font-weight: 600;
+        font-size: 18px;
+    }
+
     background-color: #262151;
     height: 100vh;
     width: 400px;
@@ -119,20 +125,23 @@
 
 @media (max-width: 768px){
     .user__form{
-        width: 300px;
+        width: 400px;
     }
 }
 
 @media (max-width: 550px){
     .user__form{
-        width: 250px;
+        width: 100%;
     }
 }
 
-@media (max-width: 450px){
+@media (max-width: 420px){
 
     .user__form{
-        width: 100%;
-    }
+        
+        button{
+            width: 100%;
+        }
 
+    }
 }

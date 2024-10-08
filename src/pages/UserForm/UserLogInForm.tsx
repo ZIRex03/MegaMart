@@ -21,18 +21,33 @@ const UserLogInForm = ({closeForm, toggleCurrentForm}: Props) => {
 
     });
 
+    const [errorLogin, setErrorLogin] = useState(false);
+
     const handleChange = ({target: {value, name}}:any) => {
         setValues({...values, [name]: value })
     }
 
-    const handleSubmit = (e:any) => {
+    const errorLoginStyle = {
+        display: errorLogin? 'initial': 'none'
+    }
+
+    const handleSubmit = async(e:any) => {
+
         e.preventDefault();
+        setErrorLogin(false);
 
         const isEmpty = Object.values(values).some((val) => !val);
 
         if(isEmpty) return;
 
-        dispatch(loginUser(values));
+        try{
+           await dispatch(loginUser(values)).unwrap();
+        }
+        catch(err:any){
+            setErrorLogin(true);
+            return;
+        }
+        
         closeForm();
     }
 
@@ -47,7 +62,7 @@ const UserLogInForm = ({closeForm, toggleCurrentForm}: Props) => {
         /> 
         <h2 className={s['user__form-title']}>Вход</h2>
 
-        <form className={s['user__form-group']} onSubmit={handleSubmit}>
+        <form className={s['user__form-group']} >
 
             <input
                 type="email"
@@ -69,9 +84,18 @@ const UserLogInForm = ({closeForm, toggleCurrentForm}: Props) => {
                 onChange={handleChange}
             />
 
+            <p
+                className={s['error-login']}
+                style={errorLoginStyle}
+            >
+                Неверный логин или пароль
+            </p>
+
             <button
                 type='submit'
-                className={s['signup-button']}>
+                className={s['signup-button']}
+                onClick={handleSubmit}
+                >
                 Войти
             </button>
         </form>

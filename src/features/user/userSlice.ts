@@ -17,6 +17,15 @@ import { USER_URL } from "../../utils/constants";
 //   }
 // );
 
+interface UserState{
+  currentUser: null,
+  cart: never[],
+  isLoading: boolean,
+  formType: string,
+  showForm: boolean,
+  availableEmail: boolean,
+  error: null | string,
+}
 
 export const createUser = createAsyncThunk<any, any>(
   "users/createUser",
@@ -33,16 +42,15 @@ export const createUser = createAsyncThunk<any, any>(
 
 );
 
-export const updateUser = createAsyncThunk<any, any>(
+export const updateUser = createAsyncThunk<any, any, { rejectValue: string}>(
   "users/updateUser",
 
   async (payload, thunkAPI) => {
-
     try {
       const res = await axios.put(`${USER_URL}/users/${payload.id}`, payload);
       return res.data;
-    } catch (err) {
-      return thunkAPI.rejectWithValue(err);
+    } catch (err:any) {
+      return thunkAPI.rejectWithValue(err.response.data.message[0]);
     }
   }
 
@@ -55,29 +63,38 @@ export const loginUser = createAsyncThunk<any, any>(
 
     try {
       const res = await axios.post(`${USER_URL}/auth/login`, payload);
+
+      if(!res.data.access_token){
+        return thunkAPI.rejectWithValue("Access token not found");
+      }
       const login = await axios(`${USER_URL}/auth/profile`,{
         headers:{
           "Authorization": `Bearer ${res.data.access_token}`,
         }
       });
       return login.data;
-    } catch (err) {
+    }
+    catch(err:any){
       return thunkAPI.rejectWithValue(err);
     }
+  
   }
-
+  
 );
+
+const initialState:UserState = {
+  currentUser: null,
+  cart: [],
+  isLoading: false,
+  formType: "signup",
+  showForm: false,
+  availableEmail: true,
+  error: null,
+}
 
 const userSlice = createSlice({
   name: "user",
-  initialState: {
-    currentUser: null,
-    cart: [],
-    isLoading: false,
-    formType: "signup",
-    showForm: false,
-    availableEmail: true,
-  },
+  initialState,
 
   reducers: {
     addItemToCart: (state, {payload}) => {
@@ -109,6 +126,9 @@ const userSlice = createSlice({
     },
     toggleAvailableEmail: (state, {payload}) => {
       state.availableEmail = payload;
+    },
+    logoutProfile:(state) => {
+      state.currentUser = null;
     }
   },
 
@@ -121,9 +141,13 @@ const userSlice = createSlice({
     });
     builder.addCase(updateUser.fulfilled, (state, {payload}) => {
       state.currentUser = payload;
+      state.error = null;
     });
+    builder.addCase(updateUser.rejected, (state, {payload}) => {
+      state.error = payload as string | null;
+    })
   },
 });
 
-export const {addItemToCart, toggleForm, toggleFormType, toggleAvailableEmail, removeItemFromCart} = userSlice.actions;
+export const {addItemToCart, toggleForm, logoutProfile, toggleFormType, toggleAvailableEmail, removeItemFromCart} = userSlice.actions;
 export default userSlice.reducer;

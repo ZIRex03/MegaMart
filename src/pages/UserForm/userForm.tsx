@@ -4,7 +4,7 @@ import UserSignUpForm from './UserSignUpForm';
 
 import s from './UserSignUpForm.module.scss'
 import { toggleForm, toggleFormType } from '../../features/user/userSlice';
-import UserLogInForm from './UserLogInForm copy';
+import UserLogInForm from './UserLogInForm';
 
 type Props = {}
 

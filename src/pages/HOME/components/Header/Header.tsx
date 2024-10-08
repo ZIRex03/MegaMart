@@ -39,9 +39,12 @@ const Header = (props: Props) => {
   const {data, isLoading} = useGetProductsQuery({title: searchValue})
 
   useEffect(() => {
-    if(!currentUser) return;
+    if(!currentUser){
+      setValues({...values, name:'Guest', avatar: AVATAR})
+      return
+    };
     setValues(currentUser);
-  }, [currentUser]);
+  }, [currentUser, values]);
 
   const handleSearch = ({target: {value}}:any) => {
     setSearchValue(value);

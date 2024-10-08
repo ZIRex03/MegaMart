@@ -3,6 +3,28 @@
 
 .profile{
     margin-top: 30px;
+    position: relative;
+
+    .sucess{
+        position: fixed;
+        background-color: green;
+        width: 100%;
+        height: 100px;
+        top: 0px;
+        left: 0;
+        text-align: center;
+        align-content: center;
+        font-size: 26px;
+        font-weight: 600;
+        z-index: 999;
+        transition: all ease .3s;
+        transform: translateY(-130%);
+        border-radius: 15px;
+    }
+
+    .sucess.active{
+        transform: translateY(0%);
+    }
 
     &__header{
         display: flex;
@@ -47,29 +69,52 @@
             
         }
 
-        .button-edit{
-            background-color: #4182F9;
-            color: $text-color;
-            font-size: 28px;
-            border-radius: 12px;
-            border: 0px;
-            padding: 10px 30px;
-            height: fit-content;
-            align-self: center;
-            cursor: pointer;
-        }
+        // &-buttons{
+        //     display: flex;
+        //     flex-direction: column;
+        //     row-gap: 20px;
+        //     margin-top: 30px;
+
+        //     // button{
+                
+        //     //     color: $text-color;
+        //     //     font-size: 28px;
+        //     //     border-radius: 12px;
+        //     //     border: 0px;
+        //     //     padding: 10px 30px;
+        //     //     cursor: pointer;
+        //     // }
+
+        //     // .button-edit{
+        //     //     background-color: #4182F9;
+        //     // }
+
+        //     // .button-logout{
+        //     //     background-color: #b52525;
+        //     // }
+            
+
+        // }
+
     }
 
     &__inputs{
-        margin-top: 40px;
+
+        margin-top: 60px;
         width: 100%;
         display: flex;
         flex-direction: column;
-        align-items: center;
         row-gap: 20px;
+        align-items: center;
+
+        &-names{
+            width: 100%;
+            display: flex;
+            column-gap: 20px;
+        }
 
         input{
-            width: 60%;
+            width: 100%;
             padding: 10px 10px;
             border-radius: 12px;
             font-size: 22px;
@@ -83,6 +128,7 @@
         }
 
         button{
+            width: 40%;
             font-size: 28px;
             padding: 10px 30px;
             border-radius: 12px;
@@ -90,51 +136,148 @@
             cursor: pointer;
         }
     }
+
+    &__footer{
+        margin-top: 60px;
+        display: flex;
+        column-gap: 20px;
+
+        button{
+            color: $text-color;
+            font-size: 28px;
+            border-radius: 12px;
+            border: 0px;
+            padding: 5px 20px;
+            cursor: pointer;
+        }
+
+        .button-password{
+            background-color: #4182F9;
+        }
+
+        .button-logout{
+            background-color: #b52525;
+        }
+    }
+
+    .overlay{
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(33, 33, 35, 0.8);
+        z-index: 998;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        .password__box{
+            position: absolute;
+            background-color: #fff;
+            min-width: 300px;
+            padding: 10px 10px;
+            border-radius: 15px;
+
+            &-title{
+                display: flex;
+                justify-content: space-between;
+                color: #000;
+
+                p{
+                    color: #000;
+                    font-weight: 600;
+                    font-size: 22px;
+                }
+
+                .close-icon{
+                    width: 25px;
+                    height: 25px;
+                    cursor: pointer;
+                }
+                
+            }
+
+            &-form{
+                margin-top: 20px;
+                display: flex;
+                flex-direction: column;
+                row-gap: 10px;
+
+                input{
+                    font-size: 18px;
+                    padding: 5px 5px;
+                    border-radius: 8px;
+                    
+                    &::placeholder{
+                        font-size: 18px;
+                    }
+                }
+
+                .input-password-box{
+                    display: flex;
+                    justify-content: space-between;
+                    column-gap: 10px;
+                    width: 100%;
+                    input{
+                        width: 100%;
+                    }
+
+                    .show-password{
+                        margin-top: 3px;
+                        color: #000;
+                        width: 25px;
+                        height: 25px;
+                        cursor: pointer;
+                        transition:  .3s all ease;
+
+                        &:hover{
+                            opacity: .4;
+                        }
+                    }
+                }
+
+                button{
+                    margin-top: 10px;
+                    padding: 5px 10px;
+                    font-size: 20px;
+                    font-weight: 600;
+                    background-color: #FE9611;
+                    border-radius: 8px;
+                    color: $text-color;
+                    cursor: pointer;
+                }
+
+                .password-error{
+                    color: #b52525;
+                    font-size: 18px;
+                    font-weight: 600;
+                }
+            }
+        }
+    }
 }
 
 @media(max-width: 870px){
 
-    .profile{
-        &__header{
-            flex-direction: column;
-
-            .button-edit{
-
-                align-self: normal;
-                width: fit-content;
-                margin-top: 30px;
-            }
-        }
-    }
-}
-
-@media(max-width:700px){
     .profile__inputs{
 
-        input{
+        &-names{
             width: 100%;
+            display: flex;
+            flex-direction: column;
+            row-gap: 20px;
+            column-gap: 20px;
+        }
+
+        button{
+            width: 70%;
         }
     }
+
 }
 
 @media(max-width: 540px){
-
-    .profile{
-
-        &__header{
-            
-            .button-edit{
-
-                font-size: 20px;
-            }
-        }
-
-        &__inputs{
-            button{
-                font-size: 20px;
-            }
-        }
-    }
 
     .profile__header-user-image{
         width: 150px;
@@ -154,12 +297,18 @@
         }
     }
 
-    
+    .profile__inputs{
+
+        button{
+            width: 100%;
+        }
+    }
 
     
 }
 
 @media (max-width:420px){
+
     .profile__header-user-info{
 
         .name{
@@ -173,5 +322,21 @@
     .profile__header-user-image{
         width: 60px;
         height: 60px;
+    }
+
+    .profile__inputs{
+        
+        button{
+            font-size: 20px;
+        }
+    }
+
+    .profile__footer{
+
+        justify-content: space-between;
+
+        button{
+            font-size: 20px;
+        }
     }
 }
