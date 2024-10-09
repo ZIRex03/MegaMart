@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/MegaMart/static/css/main.df3cf58f.css",
-    "main.js": "/MegaMart/static/js/main.c1712a32.js",
+    "main.css": "/MegaMart/static/css/main.081e0bfd.css",
+    "main.js": "/MegaMart/static/js/main.f2e88dd6.js",
     "static/media/jeans3.png": "/MegaMart/static/media/jeans3.a67fe6dd2647bf2cb4a2.png",
     "static/media/MegaMart-icon.png": "/MegaMart/static/media/MegaMart-icon.dc30ce382f3f2de92c29.png",
     "static/media/news-item2.png": "/MegaMart/static/media/news-item2.0ffa54064a8bb1f26f8c.png",
@@ -14,11 +14,11 @@
     "static/media/jeans1.png": "/MegaMart/static/media/jeans1.c99038683f5f96caf61a.png",
     "static/media/user-icon.jpg": "/MegaMart/static/media/user-icon.38d73d4810ca4c029a2c.jpg",
     "index.html": "/MegaMart/index.html",
-    "main.df3cf58f.css.map": "/MegaMart/static/css/main.df3cf58f.css.map",
-    "main.c1712a32.js.map": "/MegaMart/static/js/main.c1712a32.js.map"
+    "main.081e0bfd.css.map": "/MegaMart/static/css/main.081e0bfd.css.map",
+    "main.f2e88dd6.js.map": "/MegaMart/static/js/main.f2e88dd6.js.map"
   },
   "entrypoints": [
-    "static/css/main.df3cf58f.css",
-    "static/js/main.c1712a32.js"
+    "static/css/main.081e0bfd.css",
+    "static/js/main.f2e88dd6.js"
   ]
 }
