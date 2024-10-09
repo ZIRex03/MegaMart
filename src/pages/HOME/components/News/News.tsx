@@ -12,6 +12,7 @@ type Props = {};
 const News = (props: Props) => {
 
     const sliderRef = useRef<HTMLDivElement | null>(null);
+    const sliderContainer = useRef<HTMLDivElement | null>(null);
     const paginationCircle = useRef<HTMLDivElement[] | any>([]);
     const [currentSlideIndex, setCurrentSlideIndex] = useState(0);
 
@@ -28,17 +29,18 @@ const News = (props: Props) => {
       let endTouchY = 0;
 
       const sliderPosition:any = sliderRef.current?.getBoundingClientRect();
-      const leftSliderPosition = sliderPosition?.left; 
-      const rightSliderPosition = sliderPosition?.right; 
 
-      document.addEventListener('touchstart', (event) => {
-        startTouchX = event.changedTouches[0].pageX;
-        startTouchY = event.changedTouches[0].pageY;
+      const leftSliderPosition = sliderPosition?.left; 
+      const rightSliderPosition = sliderPosition?.right;  
+
+      sliderContainer.current?.addEventListener('touchstart', (event) => {
+        startTouchX = event.changedTouches[0].clientX;
+        startTouchY = event.changedTouches[0].clientY;
       });
 
-      document.addEventListener('touchend', (event) => {
-        endTouchX = event.changedTouches[0].pageX;
-        endTouchY = event.changedTouches[0].pageY;
+      sliderContainer.current?.addEventListener('touchend', (event) => {
+        endTouchX = event.changedTouches[0].clientX;
+        endTouchY = event.changedTouches[0].clientY;
 
         if((startTouchX >= leftSliderPosition && startTouchX <= rightSliderPosition) && endTouchX > startTouchX && Math.abs(endTouchY-startTouchY)<40)
         previousSlide();
@@ -49,9 +51,6 @@ const News = (props: Props) => {
       });
 
     },[])
-
-    
-    
 
     const styleSLider = {
         transform: `translateX(-${currentSlideIndex * sliderWidth}px)`
@@ -78,7 +77,7 @@ const News = (props: Props) => {
     }
 
   return (
-    <div className={s["news"]}>
+    <div className={s["news"]} ref={sliderContainer}>
       <p className={s["news-title"]}>Модные новости</p>
 
       <div className={s["news__items"]}>
