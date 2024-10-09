@@ -5,14 +5,13 @@ import newsItem2 from "../../../../images/news-item2.png";
 import newsItem3 from "../../../../images/news-item3.png";
 
 import s from "./News.module.scss";
-import classNames from "classnames";
-import { IoMdArrowDropleft, IoMdArrowDropright } from "react-icons/io";
+
 
 type Props = {};
 
 const News = (props: Props) => {
 
-  const sliderRef = useRef<HTMLDivElement | null>(null);
+    const sliderRef = useRef<HTMLDivElement | null>(null);
     const paginationCircle = useRef<HTMLDivElement[] | any>([]);
     const [currentSlideIndex, setCurrentSlideIndex] = useState(0);
 
@@ -22,7 +21,37 @@ const News = (props: Props) => {
 
     const sliderWidth:any = sliderRef.current?.clientWidth;
 
-    console.log(sliderWidth)
+    useEffect(() => {
+      let startTouchX = 0;
+      let endTouchX = 0;
+      let startTouchY = 0;
+      let endTouchY = 0;
+
+      const sliderPosition:any = sliderRef.current?.getBoundingClientRect();
+      const leftSliderPosition = sliderPosition?.left; 
+      const rightSliderPosition = sliderPosition?.right; 
+
+      document.addEventListener('touchstart', (event) => {
+        startTouchX = event.changedTouches[0].pageX;
+        startTouchY = event.changedTouches[0].pageY;
+      });
+
+      document.addEventListener('touchend', (event) => {
+        endTouchX = event.changedTouches[0].pageX;
+        endTouchY = event.changedTouches[0].pageY;
+
+        if((startTouchX >= leftSliderPosition && startTouchX <= rightSliderPosition) && endTouchX > startTouchX && Math.abs(endTouchY-startTouchY)<40)
+        previousSlide();
+
+        if((startTouchX >= leftSliderPosition && startTouchX <= rightSliderPosition) && endTouchX < startTouchX && Math.abs(endTouchY-startTouchY)<40)
+          nextSlide();
+
+      });
+
+    },[])
+
+    
+    
 
     const styleSLider = {
         transform: `translateX(-${currentSlideIndex * sliderWidth}px)`
@@ -82,11 +111,6 @@ const News = (props: Props) => {
 
         <div className={s['container__top']}>
 
-            <IoMdArrowDropleft
-                className={classNames(s['arrow'])}
-                onClick={previousSlide}
-            />
-
             <div className={s['frame']}>
                     
                 <div className={s['slider']} style={styleSLider}>
@@ -126,12 +150,6 @@ const News = (props: Props) => {
                 </div>
 
             </div>
-
-
-            <IoMdArrowDropright
-                className={classNames(s['arrow'])}
-                onClick={nextSlide}
-            />
 
         </div>
 
